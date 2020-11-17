@@ -92,4 +92,14 @@ public class BankTransaction {
 		
 		return list;
 	}
+
+	@Override
+	public String toString() {
+		return "Tipo:" + generateString(this.tipo) 
+		+ ", Data:" + generateString(this.data) 
+		+ ", Valor:" + generateString(this.valor) 
+		+ ", Ident:" + generateString(this.ident) 
+		+ ", Memo:" + generateString(this.memo) 
+		+ ", Checknum:" + generateString(this.checknum);
+	}
 }
