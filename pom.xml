@@ -5,9 +5,9 @@
 	<url>http://maven.apache.org</url>
 
 	<groupId>br.com.gestcenter</groupId>
-	<artifactId>ofxToCsv</artifactId>
+	<artifactId>ofxConvert</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ofxToCsv</name>
+	<name>ofxConvert</name>
 	<description>Conversor de arquivos OFX</description>
 
 	<properties>

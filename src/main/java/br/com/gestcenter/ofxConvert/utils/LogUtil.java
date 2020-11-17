@@ -1,4 +1,4 @@
-package br.com.gestcenter.ofxToCsv.utils;
+package br.com.gestcenter.ofxConvert.utils;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
