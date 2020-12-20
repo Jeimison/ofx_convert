@@ -6,6 +6,7 @@ import static br.com.gestcenter.ofxConvert.utils.OfxUtil.generateCsvFile;
 import java.util.List;
 
 import br.com.gestcenter.ofxConvert.objects.BankTransaction;
+import br.com.gestcenter.ofxConvert.utils.LogUtil;
 
 /**
  * 
@@ -13,6 +14,14 @@ import br.com.gestcenter.ofxConvert.objects.BankTransaction;
  * 
  */
 public class Ofx {
+	
+	public static void main(String[] args) {
+		List<BankTransaction> list = generateBankTransaction("C:\\Users\\jeimison\\Downloads\\extrato debora 09.ofx");
+		
+		for (BankTransaction bankTransaction : list) {
+			LogUtil.log(Ofx.class, bankTransaction.toString());
+		}
+	}
 
 	/**
 	 * Generates CSV file

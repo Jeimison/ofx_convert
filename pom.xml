@@ -6,7 +6,7 @@
 
 	<groupId>br.com.gestcenter</groupId>
 	<artifactId>ofxConvert</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>ofxConvert</name>
 	<description>Conversor de arquivos OFX</description>
 
@@ -16,7 +16,6 @@
 	</properties>
 
 	<build>
-		<finalName>saferBase</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
