@@ -3,6 +3,7 @@ package br.com.gestcenter.ofxConvert;
 import static br.com.gestcenter.ofxConvert.utils.OfxUtil.generateBankTransaction;
 import static br.com.gestcenter.ofxConvert.utils.OfxUtil.generateCsvFile;
 
+import java.io.InputStreamReader;
 import java.util.List;
 
 import br.com.gestcenter.ofxConvert.objects.BankTransaction;
@@ -41,5 +42,16 @@ public class Ofx {
 	public static List<BankTransaction> convertToList(String file) {
 		return generateBankTransaction(file);
 	}
+	
+	/**
+	 * Generates bank transaction list
+	 * 
+	 * @param file
+	 * @return ArrayList BankTransaction
+	 */
+	public static List<BankTransaction> convertToList(final InputStreamReader file) {
+		return generateBankTransaction(file);
+	}
+
 
 }

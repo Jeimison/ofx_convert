@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import br.com.gestcenter.ofxConvert.Ofx;
 
@@ -14,26 +15,34 @@ import br.com.gestcenter.ofxConvert.Ofx;
  */
 public class XmlUtil {
 
-	@SuppressWarnings("resource")
+	public static StringBuffer generateXml(final InputStreamReader file) {
+		return generateXml(new BufferedReader(file));
+	}
+	
 	public static StringBuffer generateXml(String file) {
-		StringBuffer xml = new StringBuffer();
-
 		BufferedReader br = null;
-		String str, sufixo;
-		String lineSeparator = System.getProperty("line.separator");
 
 		try {
-			br = new BufferedReader(new FileReader(file));
+			br = new BufferedReader(new FileReader(file));	
 		} catch (FileNotFoundException e) {
 			LogUtil.log(Ofx.class, "File Not Found.");
 			e.printStackTrace();
 			return null;
 		}
 
+		return generateXml(br);
+	}
+	
+	public static StringBuffer generateXml(BufferedReader file) {
+		StringBuffer xml = new StringBuffer();
+
+		String str, sufixo;
+		String lineSeparator = System.getProperty("line.separator");
+
 		xml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>").append(lineSeparator);
 
 		try {
-			while ((str = br.readLine()) != null) {
+			while ((str = file.readLine()) != null) {
 				if (str.trim().length() > 0) {
 					if (str.trim().substring(0, 1).equals("<")) {
 
@@ -45,7 +54,7 @@ public class XmlUtil {
 					}
 				}
 			}
-			br.close();
+			file.close();
 		} catch (IOException e) {
 			LogUtil.log(Ofx.class, "Error when generating xml.");
 			e.printStackTrace();
